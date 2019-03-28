@@ -29,7 +29,6 @@ from detection import objective_MTL2_detection_CV5
 # from application import objective_MTL2_detection_CV9
 
 
-
 def main():
     parser = OptionParser()
     parser.add_option(
@@ -43,11 +42,16 @@ def main():
     parser.add_option(
             '--data', dest='data', default='RumEval',
             help='Which dataset to use: RumEval(train, dev, test) or PHEME5 or PHEME9 (leave one event out cross-validation): default=%default')
+    parser.add_option(
+        '--fname', dest='fname', default=False,
+        help='filename')
+
     (options, args) = parser.parse_args()
     psearch = options.psearch
     ntrials = int(options.ntrials)
     data = options.data
     model = options.model
+    fname = options.fname
     output = []
 
     if model == 'mtl2detect':
@@ -56,28 +60,27 @@ def main():
                 print("parameter search.....")
                 params = parameter_search(ntrials,
                                           objective_MTL2_detection_CV5,
-                                          'MTL2_detection_PHEME5-randomsearch')
+                                          fname)
             else:
                 params_file = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/bestparams_MTL2_detection_PHEME5.txt'
                 with open(params_file, 'rb') as f:
                     params = pickle.load(f)
             print(params)
             output = eval_MTL2_detection_CV(params, 'PHEME5',
-                                            'MTL2_detection_PHEME5-randomsearch')
-        #
+                                            fname)
+
         elif data == 'augmented-9000':
             if psearch:
                 params = parameter_search(ntrials,
                                           objective_MTL2_detection_CV5,
-                                          'MTL2_detection_augmented-9000')
+                                          fname)
             else:
                 params_file = 'bestparams_MTL2_detection_augmented-9000.txt'
                 with open(params_file, 'rb') as f:
                     params = pickle.load(f)
             print(params)
-            output = eval_MTL2_detection_CV(params,'augmented',
-                                            'MTL2_detection_augmented-9000')
-        #
+            output = eval_MTL2_detection_CV(params,'augmented-9000',
+                                            fname)
 
         else:
             print ("Check dataset name")

@@ -17,8 +17,8 @@ from sklearn.metrics import precision_recall_fscore_support
 from keras.preprocessing.sequence import pad_sequences
 from copy import deepcopy
 from itertools import compress
-
-
+import time
+from data_loader import *
 # %%
 
 def build_model(params, num_features):
@@ -76,7 +76,10 @@ from pprint import pprint as pp
 def objective_MTL2_detection_CV5(params):
     # path = 'saved_data/saved_data_MTL2_detection'
     # path = 'saved_data/source-tweets'
-    path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/saved_data/source-tweets'
+    path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/saved_data/source-tweets-context-top25'
+    # path = os.path.join('..', 'saved_data/source-tweets-context')
+    # path = os.path.join('..', 'saved_data/saved_data_MTL2_detection')
+    print(path)
 
     train = ['ferguson',
              'ottawashooting',
@@ -85,13 +88,13 @@ def objective_MTL2_detection_CV5(params):
 
     test = 'charliehebdo'  # 'germanwings-crash'
 
-
-    max_branch_len = 1
+    max_branch_len = 25
     x_train = []
 
     yb_train = []
     yc_train = []
-    pp(glob.glob(os.path.join(path,'*')))
+    print("Train ", train)
+    print("Test ", test)
     for t in train:
         # print(glob.glob(os.path.join(path, t, '*.npy')))
         # print("")
@@ -102,19 +105,24 @@ def objective_MTL2_detection_CV5(params):
         temp_x_train = pad_sequences(temp_x_train, maxlen=max_branch_len,
                                      dtype='float32', padding='post',
                                      truncating='post', value=0.)
+        print("temp_x_train ", temp_x_train.shape)
         x_train.extend(temp_x_train)
         yc_train.extend(temp_yc_train)
 
     x_train = np.asarray(x_train)
+    print("X train shape ", x_train.shape)
     yc_train = np.asarray(yc_train)
+    print("y train ", yc_train.shape)
     yc_train = to_categorical(yc_train, num_classes=2)
     x_test = np.load(os.path.join(path, test, 'train_array.npy'))
+    print("X test shape ", x_test.shape)
     yc_test = np.load(os.path.join(path, test, 'rnr_labels.npy'))
-
     ids_testBC = np.load(os.path.join(path, test, 'ids.npy'))
-
+    start =time.time()
     model = training(params, x_train, yc_train)
-
+    end=time.time()
+    print("** Elapsed time ", end-start)
+    print("")
     pred_probabilities_c = model.predict(x_test, verbose=0)
 
     Y_pred_c = np.argmax(pred_probabilities_c, axis=1)
@@ -138,21 +146,21 @@ def objective_MTL2_detection_CV5(params):
 
 def eval_MTL2_detection_CV(params, data, fname):
     # path = 'saved_data/saved_data_MTL2_detection'
-    path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/saved_data/source-tweets'
-
+    path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/saved_data/source-tweets-context-top25'
+    print("path ", path)
     if data == 'PHEME5':
         folds = ['charliehebdo', 'germanwings-crash', 'ferguson',
                  'ottawashooting', 'sydneysiege']
 
     elif data =='augmented-9000':
         folds = ['charliehebdo', 'germanwings-crash', 'ferguson',
-                 'ottawashooting', 'sydneysiege', 'boston9000-0.3']
+                 'ottawashooting', 'sydneysiege', 'boston']
     else:
-        folds = ['charliehebdo', 'germanwings-crash', 'ferguson',
-                 'ottawashooting', 'sydneysiege', 'putinmissing',
-                 'prince-toronto', 'gurlitt', 'ebola-essien']
-    print(folds)
+        print("check data name")
 
+    print("******* Folds ")
+    print(folds)
+    print("")
     allfolds = []
 
     cv_ids_c = []
@@ -166,7 +174,7 @@ def eval_MTL2_detection_CV(params, data, fname):
         train = deepcopy(folds)
         del train[number]
 
-        max_branch_len = 1
+        max_branch_len = 25
         x_train = []
         yc_train = []
 
@@ -249,11 +257,11 @@ def eval_MTL2_detection_CV(params, data, fname):
 
         }
     }
-    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output"
+    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-context-top25"
     if not os.path.exists(directory):
         os.mkdir(directory)
     # with open(directory + fname + '.pkl', 'wb') as outfile:
-    with open('/mnt/fastdata/acp16sh/Multitask4Veracity-master/output/output' + fname + '.pkl', 'wb') as outfile:
+    with open('/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-context-top25/output' + fname + '.pkl', 'wb') as outfile:
         pickle.dump(output, outfile)
 
     return output
