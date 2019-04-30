@@ -27,11 +27,20 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# local files
+src/detection_only/__init__.py
+data/
+output/
+preprocessing/
+preprocessing.zip
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+
+.gitignore
 
 # Installer logs
 pip-log.txt
