@@ -7,6 +7,8 @@ This source code provides reproducebility to our data augmentation paper "Data A
 
 Augmented Raw data is based on [PHEME 6392078 dataset](https://figshare.com/articles/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078) and can be downloaded at 
 https://figshare.com/articles/PHEME_augmented_dataset_for_Early_Rumour_Detection/<XXXX>
+  
+Credbank Fine-tuned ELMo(ELMo_CREDBANK) used in this paper can be downloaded via http://staffwww.dcs.shef.ac.uk/people/J.Gao/data/elmo_credbank/elmo_credbank_2x4096_512_2048cnn_2xhighway_weights_12262018.hdf5
 
 If you use the version from this Git repository or our augmented data (BostonBombing-Aug v1.0), please cite: 
 
