@@ -1,10 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 24 14:23:32 2017
 
-@author: Helen
-"""
 import pickle
 import os
 from hyperopt import fmin, tpe, hp, Trials
@@ -27,7 +23,7 @@ def parameter_search(ntrials, objective_function, fname):
                     }
 
 
-    ## Random searc
+    ## Random search
     # search_space = {'num_dense_layers': 1 + hp.randint('nlayers', 5),
     #                 'num_dense_units': 50 + hp.randint('num_dense', 500),
     #                 'num_epochs': hp.choice('num_epochs', [50, 100, 150]),
@@ -50,16 +46,12 @@ def parameter_search(ntrials, objective_function, fname):
 
     params = trials.best_trial['result']['Params']
     print(params)
-    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-augpheme-sydney-top25"
-    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-pheme-shuffle"
     directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-asonam/pheme5-aug-fergusoncorrect"
     # directory = "/oak01/data/sooji/multitask4veracity/output-asonam/pheme5-aug"
+    os.makedirs(directory, exist_ok=True)
     print(directory)
-    # directory = '/Users/suzie/Desktop/PhD/Projects/Multitask4Veracity/saved_data/source-tweets-context-top25-bool'
-    if not os.path.exists(directory):
-        os.makedirs(directory, exist_ok=True)
 
-    # f = open('/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-augpheme-sydney-top25/trials_' + fname + '.txt', "wb")
+
     f = open(os.path.join(directory, 'trials_' + fname + '.txt'), "wb")
     pickle.dump(trials, f)
     f.close()

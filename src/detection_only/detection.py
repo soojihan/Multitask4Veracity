@@ -1,8 +1,3 @@
-"""
-Created on Sun Aug 27 14:57:40 2017
-
-@author: Helen
-"""
 import os
 from keras.models import Model
 from keras.layers import Input, LSTM, Dense, Masking, Dropout
@@ -75,8 +70,6 @@ from pprint import pprint as pp
 
 def objective_MTL2_detection_CV5(params):
     # path = 'saved_data/saved_data_MTL2_detection'
-    # path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/saved_data_hydrator/augpheme-top25-sydneysiege'
-    # path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/saved_data/source-tweets-context-top25-bool'
     # path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/data/saved_data_hydrator/augpheme-top25-complete'
     path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/data/saved_data_hydrator/augpheme-top25-complete-fergusoncorrect'
     # path = '/oak01/data/sooji/multitask4veracity/data/saved_data_hydrator/augpheme-top25-complete'
@@ -157,7 +150,7 @@ def eval_MTL2_detection_CV(params, data, fname):
 
     elif data =='augmented-9000':
         folds = ['charliehebdo', 'germanwings', 'ferguson',
-                 'ottawashooting', 'sydneysiege', 'boston']
+                 'ottawashooting', 'sydneysiege', 'bostonbombings']
 
     else:
         print("check data name")
@@ -261,15 +254,11 @@ def eval_MTL2_detection_CV(params, data, fname):
 
         }
     }
-    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-context-top25"
     # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-augpheme-sydney-top25"
-    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-asonam/pheme5-aug"
-    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-asonam/pheme5-aug-fergusoncorrect"
-    # directory = "/oak01/data/sooji/multitask4veracity/output-asonam/pheme5-aug"
+    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output/pheme5-aug-fergusoncorrect"
+    # directory = "/oak01/data/sooji/multitask4veracity/output/pheme5-aug"
     print(directory)
-    if not os.path.exists(directory):
-        os.makedirs(directory, exist_ok=True)
-    # with open(directory + fname + '.pkl', 'wb') as outfile:
+    os.makedirs(directory, exist_ok=True)
     with open(os.path.join(directory, 'output_' + fname + '.pkl'), 'wb') as outfile:
         pickle.dump(output, outfile)
 
