@@ -40,7 +40,6 @@ preprocessing.zip
 *.manifest
 *.spec
 
-.gitignore
 
 # Installer logs
 pip-log.txt
