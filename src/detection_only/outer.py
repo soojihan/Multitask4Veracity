@@ -70,31 +70,6 @@ def main():
             output = eval_MTL2_detection_CV(params, data,
                                             fname)
 
-        elif data == 'augmented-9000':
-            if psearch:
-                params = parameter_search(ntrials,
-                                          objective_MTL2_detection_CV5,
-                                          fname)
-            else:
-                params_file = 'bestparams_MTL2_detection_augmented-9000.txt'
-                with open(params_file, 'rb') as f:
-                    params = pickle.load(f)
-            print(params)
-            output = eval_MTL2_detection_CV(params,'augmented-9000',
-                                            fname)
-
-        elif data == 'augpheme':
-            if psearch:
-                params = parameter_search(ntrials,
-                                          objective_MTL2_detection_CV5,
-                                          fname)
-            else:
-                params_file = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/output_hydrator/augpheme-germanwings-top25+trial30/bestparams_german_aug.txt'
-                with open(params_file, 'rb') as f:
-                    params = pickle.load(f)
-            print(params)
-            output = eval_MTL2_detection_CV(params,'augpheme',fname)
-
         else:
             print ("Check dataset name")
 
