@@ -8,6 +8,6 @@ This source code provides reproducebility to our data augmentation paper "Data A
 Augmented Raw data is based on [PHEME 6392078 dataset](https://figshare.com/articles/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078) and can be downloaded at 
 https://figshare.com/articles/PHEME_augmented_dataset_for_Early_Rumour_Detection/<XXXX>
 
-If you use the version from this Git repository or our augmented data, please cite: 
+If you use the version from this Git repository or our augmented data (PHEME-Aug v1.0), please cite: 
 
 Han S., Gao, J., Ciravegna, F. (2019). "Data Augmentation for Rumor Detection Using Context-Sensitive Neural Language Model With Large-Scale Credibility Corpus", *Seventh International Conference on Learning Representations (ICLR) LLD*, May 2019, New Orleans, Louisiana, US
