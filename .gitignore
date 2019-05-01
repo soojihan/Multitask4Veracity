@@ -33,6 +33,20 @@ data/
 output/
 preprocessing/
 preprocessing.zip
+src/andromeda/
+src/detection_only-boston-correctferguson/
+src/detection_only-boston-randomsearch/
+src/detection_only-boston/
+src/detection_only-correctferguson/
+src/detection_only-original/
+src/detection_only-randomsearch/
+src/detection_only-shuffle-boston/
+src/detection_only-shuffle-elmo/
+src/detection_only-unseen_ver2/
+src/detection_only/test.py
+src/minor_tasks.py
+src/sharc/
+
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
