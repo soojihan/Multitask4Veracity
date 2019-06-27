@@ -11,12 +11,16 @@ Han S., Gao, J., Ciravegna, F. (2019). "Data Augmentation for Rumor Detection Us
 
 # How to Run
 
+\<to be updated\>
+
 # Dataset
+
+We share our LOOCV dataset used in the paper and raw augmented rumour dataset, which can be used to reproduce our results for your interest.
 
 ## LOOCV Development set and Test set
 
 
-## Raw tweets corpus
+## Raw tweets rumour corpus
 
 Augmented Raw data is based on [PHEME 6392078 dataset](https://figshare.com/articles/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078) and can be downloaded at 
 https://figshare.com/account/projects/63092/articles/8066759 (still underreview by figshare and will be available soon; it is also available upon request)
