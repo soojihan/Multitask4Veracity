@@ -33,10 +33,15 @@ from pprint import pprint as pp
 # social_context_data_dir = os.path.join("..", "downloaded_data/all-rnr-annotated-threads") ## original PHEME
 # social_context_data_dir = os.path.join("..", "downloaded_data/augmented_data") # augmented data
 # social_context_data_dir = os.path.join("..", "downloaded_data/augmented_data_pheme") ## augmented data + original PHEME
-social_context_data_dir = os.path.join("..", '..', "data/downloaded_data/augmented_data_pheme-asonam") ## augmented data + original PHEME
+# social_context_data_dir = os.path.join("..", '..', "data/downloaded_data/augmented_data_pheme-asonam") ## augmented data + original PHEME
+# social_context_data_dir = os.path.join("..", '..', "data/downloaded_data/pheme-early") ## augmented data + original PHEME
+social_context_data_dir = os.path.join("..", '..', "data/downloaded_data/aug-rnr-merge-data-13062019") ## augmented data + original PHEME
+social_context_data_dir = os.path.join("..", '..', "data/downloaded_data/pheme-early-balance") ## augmented data + original PHEME
+social_context_data_dir = os.path.join("..", '..', "data/downloaded_data/1306-equal-balance") ## augmented data + original PHEME
+
 # social_context_data_dir = os.path.join("..", '..', "data/twitter1516") ##
 # social_context_data_dir = os.path.join("..", '..', "data/training_data/aprilfools") ##
-
+print("Social context data dir ", social_context_data_dir)
 # =============================================================
 
 

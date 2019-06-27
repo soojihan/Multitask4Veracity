@@ -62,7 +62,9 @@ def main():
                                           objective_MTL2_detection_CV5,
                                           fname)
             else:
-                params_file = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-asonam/pheme5-original/pheme5_params.txt'
+                # params_file = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-asonam/pheme5-original/pheme5_params.txt'
+                # params_file = '/mnt/fastdata/acp16sh/Multitask4Veracity/output-final/backup/pheme-early(imabalance)/bestparams_pheme.txt'
+                params_file = '/mnt/fastdata/acp16sh/Multitask4Veracity/output-final/backup/pheme-early(imabalance)/bestparams_pheme.txt'
                 print(params_file)
                 with open(params_file, 'rb') as f:
                     params = pickle.load(f)

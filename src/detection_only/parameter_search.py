@@ -46,8 +46,12 @@ def parameter_search(ntrials, objective_function, fname):
 
     params = trials.best_trial['result']['Params']
     print(params)
-    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-asonam/pheme5-aug-fergusoncorrect"
-    # directory = "/oak01/data/sooji/multitask4veracity/output-asonam/pheme5-aug"
+    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output/pheme"
+    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output/aug-balance"
+    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output-final/pheme-early"
+    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output-final/pheme-equal"
+
+
     os.makedirs(directory, exist_ok=True)
     print(directory)
 

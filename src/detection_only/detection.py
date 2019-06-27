@@ -70,10 +70,10 @@ from pprint import pprint as pp
 
 def objective_MTL2_detection_CV5(params):
     # path = 'saved_data/saved_data_MTL2_detection'
-    # path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/data/saved_data_hydrator/augpheme-top25-complete'
-    path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/data/saved_data_hydrator/augpheme-top25-complete-fergusoncorrect'
-    # path = '/oak01/data/sooji/multitask4veracity/data/saved_data_hydrator/augpheme-top25-complete'
-
+    # path = "/mnt/fastdata/acp16sh/Multitask4Veracity/data/recollect/pheme"
+    # path = "/mnt/fastdata/acp16sh/Multitask4Veracity/data/recollect/aug-balance"
+    # path = "/mnt/fastdata/acp16sh/Multitask4Veracity/data/final/pheme-early"
+    path = "/mnt/fastdata/acp16sh/Multitask4Veracity/data/final/pheme-equal-balance"
     print(path)
 
     train = [
@@ -82,7 +82,14 @@ def objective_MTL2_detection_CV5(params):
              'sydneysiege',
              ]
 
+    # train = [
+    #          'charliehebdo',
+    #          'germanwings',
+    #          'sydneysiege',
+    #          ]
+    #
     test = 'charliehebdo'  # 'germanwings-crash'
+    # test = 'ferguson'  # 'germanwings-crash'
 
     max_branch_len = 25
     x_train = []
@@ -140,20 +147,14 @@ def objective_MTL2_detection_CV5(params):
 
 def eval_MTL2_detection_CV(params, data, fname):
     # path = 'saved_data/saved_data_MTL2_detection'
-    # path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/data/saved_data_hydrator/augpheme-top25-complete'
-    path = '/mnt/fastdata/acp16sh/Multitask4Veracity-master/data/saved_data_hydrator/augpheme-top25-complete-fergusoncorrect'
-    # path = '/oak01/data/sooji/multitask4veracity/data/saved_data_hydrator/augpheme-top25-complete'
+    # path ="/mnt/fastdata/acp16sh/Multitask4Veracity/data/recollect/pheme"
+    # path ="/mnt/fastdata/acp16sh/Multitask4Veracity/data/recollect/aug-balance"
+    # path ="/mnt/fastdata/acp16sh/Multitask4Veracity/data/final/pheme-early"
+    # path = "/mnt/fastdata/acp16sh/Multitask4Veracity/data/final/backup/pheme-early(imbalance)"
+    path = "/mnt/fastdata/acp16sh/Multitask4Veracity/data/final/pheme-equal-balance"
     print("path ", path)
-    if (data == 'pheme5') or (data=='augpheme'):
-        folds = ['charliehebdo', 'germanwings', 'ferguson',
-                 'ottawashooting', 'sydneysiege']
-
-    elif data =='augmented-9000':
-        folds = ['charliehebdo', 'germanwings', 'ferguson',
-                 'ottawashooting', 'sydneysiege', 'bostonbombings']
-
-    else:
-        print("check data name")
+    folds = ['charliehebdo', 'germanwings', 'ferguson',
+             'ottawashooting', 'sydneysiege']
 
     print("******* Folds ")
     print(folds)
@@ -167,7 +168,7 @@ def eval_MTL2_detection_CV(params, data, fname):
     for number in range(len(folds)):
 
         test = folds[number]
-        print(test)
+        print("test ", test)
         train = deepcopy(folds)
         del train[number]
 
@@ -189,9 +190,9 @@ def eval_MTL2_detection_CV(params, data, fname):
         yc_train = np.asarray(yc_train)
         yc_train = to_categorical(yc_train, num_classes=2)
 
-        x_test = np.load(os.path.join(path, test, 'train_array.npy'))
-        yc_test = np.load(os.path.join(path, test, 'rnr_labels.npy'))
-        ids_testBC = np.load(os.path.join(path, test, 'ids.npy'))
+        x_test = np.load(os.path.join(test_path, test, 'train_array.npy'))
+        yc_test = np.load(os.path.join(test_path, test, 'rnr_labels.npy'))
+        ids_testBC = np.load(os.path.join(test_path, test, 'ids.npy'))
 
         model = training(params, x_train, yc_train)
 
@@ -254,9 +255,10 @@ def eval_MTL2_detection_CV(params, data, fname):
 
         }
     }
-    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output-augpheme-sydney-top25"
-    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity-master/output/pheme5-aug-fergusoncorrect"
-    # directory = "/oak01/data/sooji/multitask4veracity/output/pheme5-aug"
+    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output/pheme"
+    directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output-final/pheme-equal"
+    # directory = "/mnt/fastdata/acp16sh/Multitask4Veracity/output-test/pheme"
+
     print(directory)
     os.makedirs(directory, exist_ok=True)
     with open(os.path.join(directory, 'output_' + fname + '.pkl'), 'wb') as outfile:

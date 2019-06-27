@@ -188,18 +188,47 @@ def preprocessing_context(event, data_path):
     final_features = np.asarray(temp_list)
     print("id shape ", ids.shape)
     print("label shape ", labels.shape)
+    print(np.unique(labels, return_counts=True))
     print("feature shape ", final_features.shape)
-    outpath = os.path.join('..', '..', 'data/saved_data_hydrator/augpheme-top25-complete/{}'.format(event))
+    # outpath = os.path.join('..', '..', 'data/saved_data_hydrator/augpheme-top25-complete/{}'.format(event))
+    # outpath = os.path.join('..', '..', 'data/recollect/pheme/{}'.format(event))
+    # outpath = os.path.join('..', '..', 'data/recollect/aug-balance-23052019/{}'.format(event))
+    outpath = os.path.join('..', '..', 'data/final/pheme-equal-balance/{}'.format(event))
+    outpath = os.path.join('..', '..', 'data/final/aug-equal-balance/{}'.format(event))
     os.makedirs(outpath, exist_ok=True)
     np.save(os.path.join(outpath, 'ids'), ids)
     np.save(os.path.join(outpath, 'train_array'), final_features)
     np.save(os.path.join(outpath, 'rnr_labels'), labels)
+    # print(labels)
     print("")
+
+def check_class_distributions():
+    events = ['charliehebdo',  'ferguson', 'germanwings', 'ottawashooting', 'sydneysiege']
+    # events = ['charliehebdo',  'ferguson', ]
+    # events = ['charliehebdo', 'bostonbombings', 'ferguson', 'germanwings', 'ottawashooting', 'sydneysiege']
+    for event in events:
+        # outpath = os.path.join('..', '..', 'data/final/pheme-balance/{}'.format(event))
+        # outpath = os.path.join('..', '..', 'data/final/pheme-early/{}'.format(event))
+        # outpath = os.path.join('..', '..', 'data/final/pheme-equal-balance/{}'.format(event))
+        outpath = os.path.join('..', '..', 'data/final/aug-1306/{}'.format(event))
+        # outpath = os.path.join('..', '..', 'data/final/aug-equal-balance/{}'.format(event))
+        print(event)
+        label_file = os.path.join(outpath, 'rnr_labels.npy')
+        labels = np.load(label_file)
+        distributions = np.unique(labels, return_counts=True)
+        print(distributions)
+        print(round(distributions[1][0]/distributions[1][1],1 ))
+        print("")
 
 
 def main():
-    event = 'ferguson'
-    data_path = load_abs_path(os.path.join("..", 'downloaded_data/augmented_data_pheme'))
-    preprocessing_context(event, data_path)
-
+    event = 'ottawashooting'
+    print(event)
+    data_path = load_abs_path(os.path.join("..", "..", 'data/downloaded_data/pheme-early'))
+    data_path = load_abs_path(os.path.join("..", "..", 'data/downloaded_data/pheme-early-balance'))
+    # data_path = load_abs_path(os.path.join("..", "..", 'data/downloaded_data/1306-equal-balance'))
+    # data_path = load_abs_path(os.path.join("..", "..", 'data/downloaded_data/aug-rnr-merge-data-23052019-balance'))
+    # data_path = load_abs_path(os.path.join("..", "..", 'data/downloaded_data/aug-rnr-merge-data-13062019'))
+    # preprocessing_context(event, data_path)
+    check_class_distributions()
 main()
