@@ -11,7 +11,10 @@ Han S., Gao, J., Ciravegna, F. (2019). "Data Augmentation for Rumor Detection Us
 
 # How to Run
 
-\<to be updated\>
+
+python src/outer.py --model='mtl2detect' --data='pheme5' --search=True --ntrials=20 
+--train_path=\<train_set_directory\> --heldout_path=\<heldout_set_directory\> --test_path=\<test_set_directory\> 
+--save_path=\<model_output_directory\> --fname=\<model_output_filename\>
 
 # Dataset
 

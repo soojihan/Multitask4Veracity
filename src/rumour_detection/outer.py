@@ -81,9 +81,9 @@ elif platform == 'darwin':
     test_path = "/Users/suzie/Desktop/PhD/Projects/Multitask4Veracity/data/Multitask-saved/pheme/charliehebdo/heldout"
 
 def main():
-    from detection import eval_MTL2_detection_CV
-    from detection import objective_MTL2_detection_CV5
-    from parameter_search import parameter_search
+    from rumour_detection.detection import eval_MTL2_detection_CV
+    from rumour_detection.detection import objective_MTL2_detection_CV5
+    from rumour_detection.parameter_search import parameter_search
 
     output = []
     print(data)
