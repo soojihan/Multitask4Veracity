@@ -1,13 +1,6 @@
 import pickle
-# os.environ["THEANO_FLAGS"]="floatX=float32"
-# if using theano then use flag to set floatX=float32
 from optparse import OptionParser
-#
 from sys import platform
-from datetime import datetime
-import time
-
-# from application import objective_MTL2_detection_CV9
 
 
 parser = OptionParser()
@@ -29,8 +22,8 @@ parser.add_option(
     '--train_path', dest='train_path', default=False,
     help='path to train file')
 parser.add_option(
-    '--holdout_path', dest='holdout_path', default=False,
-    help='path to holdout file')
+    '--heldout_path', dest='heldout_path', default=False,
+    help='path to heldout file')
 parser.add_option(
     '--test_path', dest='test_path', default=False,
     help='path to test file')
@@ -47,9 +40,8 @@ ntrials = int(options.ntrials)
 data = options.data
 model = options.model
 fname = options.fname
-# fname = datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
 train_path = options.train_path
-holdout_path = options.holdout_path
+heldout_path = options.heldout_path
 test_path = options.test_path
 save_path = options.save_path
 params_file = options.params_file

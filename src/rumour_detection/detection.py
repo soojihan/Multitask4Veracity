@@ -1,5 +1,6 @@
 import os
-from keras.models import Model
+from keras.models import Model, load_model
+
 from keras.layers import Input, LSTM, Dense, Masking, Dropout
 from keras import regularizers
 import numpy as np
@@ -10,6 +11,7 @@ from branch2treelabels import branch2treelabels
 from sklearn.metrics import f1_score, accuracy_score
 from sklearn.metrics import precision_recall_fscore_support
 from keras.preprocessing.sequence import pad_sequences
+
 from copy import deepcopy
 from itertools import compress
 import time
@@ -140,6 +142,9 @@ def eval_MTL2_detection_CV(params, data, fname):
 
 
     model = training(params, x_train, y_train)
+    model.save(os.path.join(save_path, 'model_' + fname + '.h5'))
+    del model
+    model = load_model(os.path.join(save_path, 'model_' + fname + '.h5'))
 
     pred_probabilities = model.predict(x_test, verbose=0)
 
