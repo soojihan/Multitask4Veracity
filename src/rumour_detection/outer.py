@@ -22,8 +22,8 @@ parser.add_option(
     '--train_path', dest='train_path', default=False,
     help='path to train file')
 parser.add_option(
-    '--heldout_path', dest='heldout_path', default=False,
-    help='path to heldout file')
+    '--holdout_path', dest='holdout_path', default=False,
+    help='path to holdout file')
 parser.add_option(
     '--test_path', dest='test_path', default=False,
     help='path to test file')
@@ -41,7 +41,7 @@ data = options.data
 model = options.model
 fname = options.fname
 train_path = options.train_path
-heldout_path = options.heldout_path
+holdout_path = options.holdout_path
 test_path = options.test_path
 save_path = options.save_path
 params_file = options.params_file

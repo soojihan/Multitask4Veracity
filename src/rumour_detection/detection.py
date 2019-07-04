@@ -18,10 +18,10 @@ import time
 import outer
 
 global train_path
-global heldout_path
+global holdout_path
 
 train_path = outer.train_path
-heldout_path = outer.heldout_path
+holdout_path = outer.holdout_path
 test_path = outer.test_path
 save_path = outer.save_path
 
@@ -81,7 +81,7 @@ def objective_MTL2_detection_CV5(params):
     max_branch_len = 25
 
     print("Train ", train_path)
-    print("Heldout ", heldout_path)
+    print("Holdout ", holdout_path)
     print("")
     x_train = np.load(os.path.join(train_path, 'train_array.npy'))
     y_train = np.load(os.path.join(train_path,'rnr_labels.npy' ))
@@ -94,22 +94,22 @@ def objective_MTL2_detection_CV5(params):
     print("y train ", y_train.shape)
     y_train = to_categorical(y_train, num_classes=2)
     print("")
-    x_heldout = np.load(os.path.join(heldout_path, 'train_array.npy'))
-    print("X heldout shape ", x_heldout.shape)
+    x_holdout = np.load(os.path.join(holdout_path, 'train_array.npy'))
+    print("X holdout shape ", x_holdout.shape)
     print("")
-    y_heldout = np.load(os.path.join(heldout_path, 'rnr_labels.npy'))
-    ids_heldout = np.load(os.path.join(heldout_path, 'ids.npy'))
+    y_holdout = np.load(os.path.join(holdout_path, 'rnr_labels.npy'))
+    ids_holdout = np.load(os.path.join(holdout_path, 'ids.npy'))
     start =time.time()
     model = training(params, x_train, y_train)
     end=time.time()
     print("** Elapsed time ", end-start)
     print("")
-    pred_probabilities = model.predict(x_heldout, verbose=0)
+    pred_probabilities = model.predict(x_holdout, verbose=0)
 
     Y_pred = np.argmax(pred_probabilities, axis=1)
 
-    trees, tree_prediction, tree_label = branch2treelabels(ids_heldout,
-                                                              y_heldout,
+    trees, tree_prediction, tree_label = branch2treelabels(ids_holdout,
+                                                              y_holdout,
                                                               Y_pred)
 
     mactest_F = f1_score(tree_label,
