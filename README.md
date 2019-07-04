@@ -5,9 +5,9 @@ See Kochkina's repository for more details, access via https://github.com/kochki
 
 This source code provides reproducebility to our data augmentation paper as following:
 
-Han S., Gao, J., Ciravegna, F. (2019). "Neural Language Model Based Training Data Augmentation for Weakly Supervised Early Rumor Detection", The 2019 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM 2019), Vancouver, Canada, 27-30 August, 2019
+[1] Han S., Gao, J., Ciravegna, F. (2019). "Neural Language Model Based Training Data Augmentation for Weakly Supervised Early Rumor Detection", The 2019 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM 2019), Vancouver, Canada, 27-30 August, 2019
 
-Han S., Gao, J., Ciravegna, F. (2019). "Data Augmentation for Rumor Detection Using Context-Sensitive Neural Language Model With Large-Scale Credibility Corpus", Seventh International Conference on Learning Representations (ICLR) LLD,New Orleans, Louisiana, US 
+[2] Han S., Gao, J., Ciravegna, F. (2019). "Data Augmentation for Rumor Detection Using Context-Sensitive Neural Language Model With Large-Scale Credibility Corpus", Seventh International Conference on Learning Representations (ICLR) LLD,New Orleans, Louisiana, US 
 
 # How to Run
 
@@ -29,6 +29,8 @@ We share our LOOCV dataset used in the paper and raw augmented rumour dataset, w
 
 ## LOOCV Development set and Test set
 
+# Trained models and results presented in [1]
+We share trained models and parameters for the evaluation results presented in our ASONAM2019 paper[1]. 
 
 ## Raw tweets rumour corpus
 
