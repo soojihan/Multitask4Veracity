@@ -29,8 +29,12 @@ We share our LOOCV dataset used in the paper and raw augmented rumour dataset, w
 
 ## LOOCV Development set and Test set
 
+\<<To be updated. Experimental dataset will be uploaded soon. \>>
+
 # Trained models and results presented in [1]
 We share trained models and parameters for the evaluation results presented in our ASONAM2019 paper[1]. 
+
+\<<To be updated. Trained model for reproducing our results will be uploaded soon. \>>
 
 ## Raw tweets rumour corpus
 
@@ -41,6 +45,12 @@ https://figshare.com/account/projects/63092/articles/8066759 (still underreview 
   
 Credbank Fine-tuned ELMo(ELMo_CREDBANK) used in LLD paper can be downloaded via http://staffwww.dcs.shef.ac.uk/people/J.Gao/data/elmo_credbank/elmo_credbank_2x4096_512_2048cnn_2xhighway_weights_12262018.hdf5
 
+## Citation
+
 If you use the version from this Git repository or our augmented data (BostonBombing-Aug v1.0), please cite: 
 
 Han S., Gao, J., Ciravegna, F. (2019). "Data Augmentation for Rumor Detection Using Context-Sensitive Neural Language Model With Large-Scale Credibility Corpus", *Seventh International Conference on Learning Representations (ICLR) LLD*, May 2019, New Orleans, Louisiana, US
+
+If you use the source code or our augmented data (v2.0), please cite:
+
+ Han S., Gao, J., Ciravegna, F. (2019). "Neural Language Model Based Training Data Augmentation for Weakly Supervised Early Rumor Detection", The 2019 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM 2019), Vancouver, Canada, 27-30 August, 2019
