@@ -38,8 +38,11 @@ We share trained models and parameters for the evaluation results presented in o
 
 ## Raw tweets rumour corpus
 
-Augmented Raw data is based on [PHEME 6392078 dataset](https://figshare.com/articles/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078) and can be downloaded at 
-https://figshare.com/account/projects/63092/articles/8066759 (still underreview by figshare and will be available soon; it is also available upon request)
+Augmented Raw data is based on [PHEME 6392078 dataset](https://figshare.com/articles/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078). We have two versions of augmented rumor corpus.
+
+For version 1 used in LLD2019 paper, please downloaded it via https://zenodo.org/record/3249977
+
+For version 2 used in ASONAM2019 paper, please downloaded it via https://zenodo.org/record/3269768
 
 ## ELMo model
   
