@@ -48,6 +48,8 @@ For version 2 used in ASONAM2019 paper, please downloaded it via https://zenodo.
   
 Credbank Fine-tuned ELMo(ELMo_CREDBANK) used in LLD paper can be downloaded via http://staffwww.dcs.shef.ac.uk/people/J.Gao/data/elmo_credbank/elmo_credbank_2x4096_512_2048cnn_2xhighway_weights_12262018.hdf5
 
+Credbank Fine-tuned ELMo used in ASONAM 2019 paper can be downloaded via http://staffwww.dcs.shef.ac.uk/people/J.Gao/data/elmo_credbank/elmo_credbank_2x4096_512_2048cnn_2xhighway_weights_10052019.hdf5
+
 ## Citation
 
 If you use the version from this Git repository or our augmented data (BostonBombing-Aug v1.0), please cite: 
