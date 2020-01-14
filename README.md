@@ -46,9 +46,9 @@ For version 2 used in ASONAM2019 paper, please downloaded it via https://zenodo.
 
 ## ELMo model
   
-Credbank Fine-tuned ELMo(ELMo_CREDBANK) used in LLD paper can be downloaded via http://staffwww.dcs.shef.ac.uk/people/J.Gao/data/elmo_credbank/elmo_credbank_2x4096_512_2048cnn_2xhighway_weights_12262018.hdf5
+Credbank Fine-tuned ELMo(ELMo_CREDBANK) used in LLD paper can be downloaded via figshare [shef.data.11591775.v1](https://figshare.shef.ac.uk/articles/Credibility_corpus_fine-tuned_ELMo_contextual_language_model_for_early_rumor_detection_on_social_media/11591775/1) with version "12262018.hdf5" 
 
-Credbank Fine-tuned ELMo used in ASONAM 2019 paper can be downloaded via http://staffwww.dcs.shef.ac.uk/people/J.Gao/data/elmo_credbank/elmo_credbank_2x4096_512_2048cnn_2xhighway_weights_10052019.hdf5
+Credbank Fine-tuned ELMo used in ASONAM 2019 paper can be downloaded via figshare [shef.data.11591775.v1](https://figshare.shef.ac.uk/articles/Credibility_corpus_fine-tuned_ELMo_contextual_language_model_for_early_rumor_detection_on_social_media/11591775/1) with the version "10052019.hdf5" .
 
 ## Citation
 
