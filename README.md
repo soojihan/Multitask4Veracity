@@ -50,6 +50,8 @@ Credbank Fine-tuned ELMo(ELMo_CREDBANK) used in LLD paper can be downloaded via 
 
 Credbank Fine-tuned ELMo used in ASONAM 2019 paper can be downloaded via figshare [shef.data.11591775.v1](https://figshare.shef.ac.uk/articles/Credibility_corpus_fine-tuned_ELMo_contextual_language_model_for_early_rumor_detection_on_social_media/11591775/1) with the version "10052019.hdf5" .
 
+We fine-tuned our ELMo model with [bilm-tf|https://github.com/allenai/bilm-tf]. The tensorflow checkpoints of credibility fine-tuned ELMo model is also available upon request to allow you to further fine tune on your domain corpus.
+
 ## Citation
 
 If you use the version from this Git repository or our augmented data (BostonBombing-Aug v1.0), please cite: 
